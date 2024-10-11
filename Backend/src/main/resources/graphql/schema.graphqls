@@ -1,0 +1,22 @@
+type Image {
+    id: ID!
+    url: String!
+    website: Website!
+}
+
+type Website {
+    id: ID!
+    name: String!
+    url: String!
+    levels: Int!
+    images: [Image]
+}
+
+type Mutation {
+    crawlWebsite(url: String!, name: String!, levels: Int!): Website
+}
+
+type Query {
+    allImages: [Image]
+    websiteById(id: ID!): Website
+}
